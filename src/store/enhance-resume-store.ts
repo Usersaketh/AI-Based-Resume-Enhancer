@@ -8,8 +8,8 @@ interface EnhanceResumeStore {
     resumeSuggestions: any;
     setResumeFile: (file: File | null) => void;
     setResumeSuggestions: (suggestions: any) => void;
+    setResumeFileBase64: (fileBase64: { name: string; type: string; base64: string } | null) => void;
 }
-
 export const useEnhanceResumeStore = create<EnhanceResumeStore>()(
     persist(
         (set) => ({
@@ -30,6 +30,9 @@ export const useEnhanceResumeStore = create<EnhanceResumeStore>()(
                 }
             },
             setResumeSuggestions: (suggestions: any) => set({ resumeSuggestions: suggestions }),
+            setResumeFileBase64: (fileBase64: { name: string; type: string; base64: string } | null) => {
+                set({ resumeFileBase64: fileBase64 });
+            },
         }),
         {
             name: 'enhance-resume-storage',

@@ -28,7 +28,7 @@ const PdfViewer = ({ resumeFile }: Props) => {
     <div className='flex flex-col items-center gap-4 h-full'>
       <div className='flex items-center md:text-sm text-xs w-full justify-center md:gap-4 gap-1'>
         <button
-        className='bg-neutral-900 border-2 p-2 rounded-lg flex items-center hover:opacity-90 disabled:cursor-default disabled:opacity-50'
+        className='text-white bg-neutral-900 border-2 p-2 rounded-lg flex items-center hover:opacity-90 disabled:cursor-default disabled:opacity-50'
         disabled={pageNumber === 1}
         onClick={() => {
           if(pageNumber > 1){
@@ -44,7 +44,7 @@ const PdfViewer = ({ resumeFile }: Props) => {
         </p>
 
         <button
-        className='bg-neutral-900 border-2 p-2 rounded-lg flex items-center hover:opacity-90 disabled:cursor-default disabled:opacity-50'
+        className=' text-white bg-neutral-900 border-2 p-2 rounded-lg flex items-center hover:opacity-90 disabled:cursor-default disabled:opacity-50'
         disabled={pageNumber === numPages}
         onClick={() => {
           if(numPages){
@@ -56,7 +56,7 @@ const PdfViewer = ({ resumeFile }: Props) => {
         </button>
 
         <button
-        className='bg-neutral-900 border-2 p-2 rounded-lg flex items-center hover:opacity-90 disabled:cursor-default disabled:opacity-50'
+        className='text-white bg-neutral-900 border-2 p-2 rounded-lg flex items-center hover:opacity-90 disabled:cursor-default disabled:opacity-50'
         disabled={scale >= 1.5}
         onClick={() => {
           setScale(scale * 1.2);
@@ -66,7 +66,7 @@ const PdfViewer = ({ resumeFile }: Props) => {
         </button>
 
         <button
-        className='bg-neutral-900 border-2 p-2 rounded-lg flex items-center hover:opacity-90 disabled:cursor-default disabled:opacity-50'
+        className='text-white bg-neutral-900 border-2 p-2 rounded-lg flex items-center hover:opacity-90 disabled:cursor-default disabled:opacity-50'
         disabled={scale <= 0.75}
         onClick={() => {
           setScale(scale / 1.2);

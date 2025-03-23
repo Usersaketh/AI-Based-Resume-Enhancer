@@ -18,17 +18,27 @@ const EnhanceResume = () => {
     const resumeFileBase64 = useEnhanceResumeStore((state) => state.resumeFileBase64);
     const resumeSuggestions = useEnhanceResumeStore((state) => state.resumeSuggestions);
 
-    const parseSuggestions = (jsonText: string): Suggestion[] => {
+    console.log("Raw resumeSuggestions from store:", resumeSuggestions);
+
+    const parseSuggestions = (jsonText: string | null): Suggestion[] => {
+        if (!jsonText) {
+            console.log("No suggestions found in store.");
+            return [];
+        }
+
         try {
-            if(!jsonText){
-                console.log("Error in parsing the suggestions.");
-                return [];
+            // If jsonText is already an object, use it directly
+            let parsed: { suggestions: Suggestion[] };
+            if (typeof jsonText === 'string') {
+                const cleanedText = jsonText.replace(/```json|```/g, '').trim();
+                parsed = JSON.parse(cleanedText);
+            } else {
+                parsed = jsonText;
             }
 
-            const cleanedText = jsonText.replace(/```json|```/g, '').trim();
-            const parsed = JSON.parse(cleanedText);
+            console.log("Parsed suggestions:", parsed);
 
-            if (Array.isArray(parsed.suggestions)) {
+            if (parsed && Array.isArray(parsed.suggestions)) {
                 return parsed.suggestions.map((item: { heading: string; description: string }) => ({
                     heading: item.heading,
                     description: item.description
@@ -38,13 +48,14 @@ const EnhanceResume = () => {
                 return [];
             }
         } catch (error) {
-            console.error("Failed to parse suggestions", error);
+            console.error("Failed to parse suggestions:", error);
             return [];
         }
     };
 
     // Parse the suggestions
     const suggestions = parseSuggestions(resumeSuggestions);
+    console.log("Final suggestions array:", suggestions);
 
     // Convert base64 to File object
     const resumeFile = resumeFileBase64
@@ -58,7 +69,7 @@ const EnhanceResume = () => {
                 <div className='p-3 rounded-xl mb-10 border-b-2 pb-2'>
                     <p className='text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-slate-500'>
                         Enhanced Resume Suggestions<br />
-                        <span className='text-[14px] text-slate-300 font-normal border-[2px] border-dotted border-sky-500/50 p-1 rounded-lg'>@{resumeFile?.name}</span>
+                        <span className='text-[14px] text--300 font-normal border-[2px] border-dotted border-sky-500/50 p-1 rounded-lg'>@{resumeFile?.name}</span>
                     </p>
                 </div>
                 {/* Render Suggestions */}
@@ -71,7 +82,7 @@ const EnhanceResume = () => {
                         />
                     ))
                 ) : (
-                    <p className='text-neutral-500 text-sm'>Error in Parsing the Generated Suggestions. Try Again.</p>
+                    <p className='text-neutral-500 text-sm'>No suggestions available. Please try again.</p>
                 )}
             </div>
 
