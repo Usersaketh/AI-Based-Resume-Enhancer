@@ -7,8 +7,11 @@ import { ClerkProvider } from '@clerk/nextjs'
 const font = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Resume.AI",
+  title: "Resume-Revamp",
   description: "AI-Powered Resume Enhancement Tool",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
