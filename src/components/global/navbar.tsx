@@ -12,31 +12,13 @@ const NavBar = async () => {
   return (
     <header className="fixed right-0 left-0 top-0 h-[4.5rem] px-4 bg-black backdrop-blur-lg z-[100] flex items-center border-b-[1px] border-neutral-900 justify-between">
         {/* logo */}
-        <Link href={"/"} className='text-3xl mx-14 text-white font-bold cursor-pointer'>R-R</Link>
-        {/* navigation */}
-        <div className='absolute left-[50%] top-[50%] transform translate-x-[-50%] translate-y-[-50%] hidden md:block'>
-            <ul className='text-xl flex items-center gap-4 list-none text-white-900 text-sm text-neutral-400'>
-                <li className='hover:text-white'>
-                    <Link href="#">Templates</Link>
-                </li>
-                <li  className='hover:text-white'>
-                    <Link href="#">Generate</Link>
-                </li>
-                <li  className='hover:text-white'>
-                    <Link href="#">Enhance</Link>
-                </li>
-                <li  className='hover:text-white'>
-                    <Link href="#">About</Link>
-                </li>
-            </ul>
-        </div>
+        <Link href={"/"} className='text-3xl mx-14 text-white font-bold cursor-pointer'>Resume-Revamp</Link>
         {/* nav button */}
         <div className="flex items-center gap-4">
             <div className='flex items-center gap-1'>
                 <HeartHandshake className='h-5 w-5' />
                 <h1>Hello! {user?.firstName}</h1>
             </div>
-
             {
                 user ? 
                 <Link

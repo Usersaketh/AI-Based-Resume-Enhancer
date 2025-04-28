@@ -16,7 +16,7 @@ const SuggestionCard: React.FC<Suggestion> = ({heading, description}) => {
       </div>
       <div className='rounded-xl text-sm shadow-xl border-2 border-slate-700 shadow-slate-900/70'>
         <h1 className=' bg-slate-500/70 rounded-t-xl text-xl p-3 font-semibold border-b-2 border-neutral-800/40'>{heading}</h1>
-        <p className='text-black px-4 rounded-b-xl py-4 text-[16px] leading-[1.6]'>-<span>&gt;</span> {description}</p>
+        <p className='text-white px-4 rounded-b-xl py-4 text-[16px] leading-[1.6]'>-<span>&gt;</span> {description}</p>
       </div>
     </div>
   )
