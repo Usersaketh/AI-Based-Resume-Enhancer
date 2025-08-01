@@ -13,17 +13,25 @@ export async function POST(req: NextRequest) {
         const genAI = new GoogleGenerativeAI(apiKey);
         const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
-        const prompt = `Review the following technical experience i.e company name, role, description content and provide concise, actionable suggestions for improvement with a focus on increasing ATS (Applicant Tracking System) compliance.
-        Include some matrix in the points, include some matrix in the points even if the job content doesn't have,
-        like: improved 90%, acheived 95%, optimized 80% and etc,these are examples so in the same way use some well defined matrix which relates to the job content.
+        const prompt = `You are an expert HR professional and ATS optimization specialist. Based on the following work experience information, generate a professional, impactful job description that will excel in both ATS systems and impress hiring managers.
 
-        Job content:
+        Work Experience Information:
         ${text}
-        
-        Give me the well defined output as two points from the description so that i can put it in my resume,
-        Just give me 2 points of bullet point, where each point should no exceed 80 words, dont give any other explanation.
-        Output should be a string without any special characters like * only just with two bullet point points at the beginning, like each point should start with '•'.
-        `
+
+        Requirements for the generated description:
+        1. Create exactly 2 bullet points that showcase key achievements and responsibilities
+        2. Include quantifiable metrics and results (e.g., "increased efficiency by 35%", "managed team of 8 developers", "reduced costs by $50K annually")
+        3. Use strong action verbs: led, managed, developed, implemented, optimized, delivered, designed, collaborated, streamlined
+        4. Incorporate relevant industry keywords and technical skills
+        5. Focus on impact, outcomes, and value delivered to the organization
+        6. Each bullet point should be 15-25 words for optimal ATS scanning
+        7. Use present tense for current roles, past tense for previous roles
+
+        Format: Return only the 2 bullet points, each starting with "• " (bullet and space). No additional text, explanations, or formatting.
+
+        Example output format:
+        • Led cross-functional team of 6 engineers to deliver mobile application, increasing user engagement by 45%
+        • Implemented automated testing framework reducing deployment time by 60% and improving code quality across 3 projects`;
         
         const result = await model.generateContent(prompt);
         const response = await result.response;

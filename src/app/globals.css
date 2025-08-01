@@ -18,6 +18,30 @@ body, html{
 *::-webkit-scrollbar {
   display: none !important;
 }
+
+/* Custom scrollbar styles for specific elements */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  display: block !important; /* Override the global hide */
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #404040;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}
 .bg-radial-gradient {
   background-image: radial-gradient(
     circle at 10% 20%,

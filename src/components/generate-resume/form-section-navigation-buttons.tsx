@@ -1,5 +1,5 @@
 // components/NavigationButtons.tsx
-import React from 'react';
+
 import { ArrowLeft, ArrowRight, CirclePlus, X } from 'lucide-react';
 
 interface NavigationButtonsProps {

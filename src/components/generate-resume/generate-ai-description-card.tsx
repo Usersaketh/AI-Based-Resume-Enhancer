@@ -1,6 +1,6 @@
 import { Projects, TechnicalExperience } from '@/lib/types';
 import { Brain, FilePenLine, Loader } from 'lucide-react'
-import React from 'react'
+
 
 interface GenerateAIDescriptionCardProps {
     userDescription: string;

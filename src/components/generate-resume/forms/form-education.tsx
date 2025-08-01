@@ -1,6 +1,6 @@
 import { Education, EducationItem } from '@/lib/types';
 import { CirclePlus } from 'lucide-react';
-import React from 'react'
+
 
 interface FormEducationProps {
     education: Education;

@@ -1,6 +1,6 @@
 import { CertificateItem, Certificates } from '@/lib/types'
 import { CirclePlus } from 'lucide-react';
-import React from 'react'
+
 
 interface FormCertificatesProps {
     certificates: Certificates,

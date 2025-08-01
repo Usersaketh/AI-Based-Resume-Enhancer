@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import React from 'react'
+
 
 interface FormPaginationButtonProps {
     currentStep: number;
@@ -10,7 +10,7 @@ interface FormPaginationButtonProps {
 
 const FormPaginationButtons: React.FC<FormPaginationButtonProps> = ({currentStep, steps, onNext, onPrev}) => {
     return (
-        <div className='mt-10 pb-20 flex gap-10 justify-center border-t-2 pt-10'>
+        <div className='mt-4 pb-20 flex gap-10 justify-center border-t-2 pt-6'>
             <button
             disabled={currentStep === 1}
             onClick={onPrev}

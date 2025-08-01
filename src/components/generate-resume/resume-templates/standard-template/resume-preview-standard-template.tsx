@@ -1,5 +1,5 @@
 import { Achievements, BasicDetails, Certificates, Education, Projects, Skills, TechnicalExperience } from '@/lib/types'
-import React from 'react'
+
 
 interface ResumePreviewStandardTemplateProps {
     basicDetails: BasicDetails;
@@ -22,42 +22,76 @@ const ResumePreviewStandardTemplate: React.FC<ResumePreviewStandardTemplateProps
 }) => {
 
     const renderDescription = (description: string) => {
+        if (!description || description.trim() === '') {
+            return <div className="text-gray-500 italic">Add description...</div>;
+        }
         return description.split('\n').map((line, index) => (
           line.trim() ? <div key={index}>{line}</div> : null
         ));
-      };
+    };
+
+    const formatUrl = (url: string) => {
+        if (!url) return '';
+        if (!url.startsWith('http://') && !url.startsWith('https://')) {
+            return `https://${url}`;
+        }
+        return url;
+    };
+
+    const isValidEmail = (email: string) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
 
     return (
-        <div className='h-full bg-slate-100 w-full rounded-xl flex flex-col gap-[3px] text-neutral-800 p-5'>
+        <div className='h-full bg-slate-100 w-full rounded-xl flex flex-col gap-[3px] text-neutral-800 p-5 print:bg-white print:shadow-none print:rounded-none print:p-8'>
 
           {/* Basic Details */}
             <div className='flex justify-between items-end border-b-2 pb-1 border-teal-800'>
                 <div className='flex flex-col text-[8px] w-1/5'>
-                    <h1>{basicDetails.phone}</h1>
-                    <h1>{basicDetails.city}<span className={`${basicDetails.city === '' ? 'hidden' : ''}`}>, </span>{basicDetails.state}</h1>
-                    <h1 className='text-teal-800'>{basicDetails.gmail}</h1>
+                    <h1>{basicDetails.phone || 'Phone Number'}</h1>
+                    <h1>
+                        {basicDetails.city || 'City'}
+                        <span className={`${basicDetails.city === '' ? 'hidden' : ''}`}>, </span>
+                        {basicDetails.state || 'State'}
+                    </h1>
+                    <h1 className={`text-teal-800 ${!isValidEmail(basicDetails.gmail) ? 'text-red-500' : ''}`}>
+                        {basicDetails.gmail || 'email@example.com'}
+                    </h1>
                 </div>
                 <div>
-                {
-                    basicDetails.name !== '' ?
-                    <h1 className='text-2xl font-bold'>{basicDetails.name}</h1>
-                    :
-                    <h1 className='text-2xl font-bold'>Your Name</h1>
-                }
+                    {basicDetails.name !== '' ? (
+                        <h1 className='text-2xl font-bold'>{basicDetails.name}</h1>
+                    ) : (
+                        <h1 className='text-2xl font-bold text-gray-500'>Your Name</h1>
+                    )}
                 </div>
-                    <div className='text-[8px] text-right w-1/5 flex flex-col'>
-                        {
-                            basicDetails.github && 
-                            <a href={basicDetails.github} target="_blank" rel="noopener noreferrer" className='text-teal-800'>GitHub</a>
-                        }
-                        {
-                            basicDetails.linkedIn && 
-                            <a href={basicDetails.linkedIn} target="_blank" rel="noopener noreferrer" className='text-teal-800'>LinkedIn</a>
-                        }
-                    </div>
+                <div className='text-[8px] text-right w-1/5 flex flex-col'>
+                    {basicDetails.github && (
+                        <a 
+                            href={formatUrl(basicDetails.github)} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className='text-teal-800 hover:underline'
+                        >
+                            GitHub
+                        </a>
+                    )}
+                    {basicDetails.linkedIn && (
+                        <a 
+                            href={formatUrl(basicDetails.linkedIn)} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className='text-teal-800 hover:underline'
+                        >
+                            LinkedIn
+                        </a>
+                    )}
+                </div>
             </div>
 
           {/* Education */}
+          {education.length > 0 && (
           <div className='flex text-[8px] flex-col'>
                 <h1 className='text-[12px] text-teal-800 border-b-[1px] border-neutral-300 w-full'>Education</h1>
                 <div className='flex flex-col'>
@@ -77,9 +111,11 @@ const ResumePreviewStandardTemplate: React.FC<ResumePreviewStandardTemplateProps
                     }
                 </div>
           </div>
+          )}
           
 
           {/* Technical Experience */}
+          {technicalExperience.length > 0 && (
           <div className='flex text-[8px] flex-col'>
                 <h1 className='text-[12px] text-teal-800 border-b-[1px] border-neutral-300 w-full'>Technical Experience</h1>
                 <div className='flex flex-col gap-1'>
@@ -97,8 +133,10 @@ const ResumePreviewStandardTemplate: React.FC<ResumePreviewStandardTemplateProps
                     }
                 </div>
           </div>
+          )}
 
           {/* Skills */}
+          {skills.length > 0 && (
           <div className='flex text-[10px] flex-col'>
                 <h1 className='text-[12px] text-teal-800 border-b-[1px] border-neutral-300 w-full'>Skills</h1>
                 <div className='grid grid-flow-col auto-cols-max justify-center'>
@@ -117,8 +155,10 @@ const ResumePreviewStandardTemplate: React.FC<ResumePreviewStandardTemplateProps
                     }
                 </div>
           </div>
+          )}
 
           {/* Projects */}
+          {projects.length > 0 && (
           <div className='flex text-[8px] flex-col'>
                 <h1 className='text-[12px] text-teal-800 border-b-[1px] border-neutral-300 w-full'>Projects</h1>
                 {
@@ -146,8 +186,10 @@ const ResumePreviewStandardTemplate: React.FC<ResumePreviewStandardTemplateProps
                     ))
                 }
           </div>
+          )}
 
           {/* Certificates */}
+          {certificates.length > 0 && (
           <div className='flex text-[8px] flex-col'>
                 <h1 className='text-[12px] text-teal-800 border-b-[1px] border-neutral-300 w-full'>Certificates</h1>
                 <div className='flex flex-col'>
@@ -162,8 +204,10 @@ const ResumePreviewStandardTemplate: React.FC<ResumePreviewStandardTemplateProps
                     }
                 </div>
           </div>
+          )}
 
           {/* Achievements */}
+          {achievements.length > 0 && (
           <div className='flex text-[8px] flex-col'>
                 <h1 className='text-[12px] text-teal-800 border-b-[1px] border-neutral-300 w-full'>Achievements</h1>
                 <div className='flex flex-col'>
@@ -177,6 +221,7 @@ const ResumePreviewStandardTemplate: React.FC<ResumePreviewStandardTemplateProps
                     }
                 </div>
           </div>
+          )}
 
         </div>
     )

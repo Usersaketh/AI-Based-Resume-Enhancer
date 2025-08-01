@@ -1,6 +1,6 @@
 // components/StepIndicator.tsx
 import { BadgeCheck, Check, CircleCheck, CircleDashed, Dot } from 'lucide-react';
-import React from 'react';
+
 
 interface StepIndicatorProps {
   currentStep: number;
@@ -11,7 +11,7 @@ interface StepIndicatorProps {
 
 const FormStepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, latestStep, steps, onStepClick }) => {
   return (
-   <div className='flex gap-4 justify-center items-center'>
+   <div className='flex gap-4 justify-center items-center mb-2'>
     <h1 className='text-sm'>Step {currentStep} of {steps.length}</h1>
         {
             steps.map((step, index) => (

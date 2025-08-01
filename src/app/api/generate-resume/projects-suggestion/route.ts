@@ -13,19 +13,25 @@ export async function POST(req: NextRequest) {
         const genAI = new GoogleGenerativeAI(apiKey);
         const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
-        const prompt = `Review the following Project content i.e project name, techstack, description content and provide concise, actionable suggestions for improvement with a focus on increasing ATS (Applicant Tracking System) compliance.
-        Include some matrix in the points, include some matrix in the points even if the project content doesn't have, consider project techstack,
-        like: improved 90%, acheived 95%, optimized 80% and etc,these are examples so in the same way use some well defined matrix which relates to the job content.
+        const prompt = `You are an expert technical recruiter and ATS optimization specialist. Based on the following project information, generate a professional, compelling project description that will stand out to both ATS systems and human recruiters.
 
-        Project content:
+        Project Information:
         ${text}
 
-        Consider techstack from project content and use in the output.
-        
-        Give me the well defined output as two points from the description so that i can put it in my resume,
-        Just give me 2 points of bullet point, where each point should no exceed 80 words, dont give any other explanation.
-        Output should be a string without any special characters like * only just with two bullet point points at the beginning, like each point should start with '•'.
-        `
+        Requirements for the generated description:
+        1. Create exactly 2 bullet points that highlight key achievements and technical skills
+        2. Include quantifiable metrics where possible (e.g., "improved performance by 40%", "reduced load time by 60%", "handled 1000+ concurrent users")
+        3. Use action verbs like: developed, implemented, optimized, designed, built, created, deployed, integrated
+        4. Incorporate relevant technical keywords from the tech stack
+        5. Focus on impact and results, not just what was built
+        6. Each bullet point should be 15-25 words maximum for better readability
+        7. Make it ATS-friendly by using standard technical terminology
+
+        Format: Return only the 2 bullet points, each starting with "• " (bullet and space). No additional text, explanations, or formatting.
+
+        Example output format:
+        • Developed a full-stack web application using React and Node.js, serving 500+ daily active users with 99.9% uptime
+        • Implemented real-time chat functionality with Socket.io, reducing message latency by 70% and improving user engagement`;
         
         const result = await model.generateContent(prompt);
         const response = await result.response;

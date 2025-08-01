@@ -1,5 +1,5 @@
 // components/FormSkills.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Skills } from '@/lib/types';  // Adjust the import based on your file structure
 import { Trash } from 'lucide-react';
 

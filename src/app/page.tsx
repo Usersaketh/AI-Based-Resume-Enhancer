@@ -1,4 +1,3 @@
-import NavBar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import { Brain, Sparkles } from 'lucide-react';
 import { FlipWords } from "@/components/global/flip-words";
@@ -7,31 +6,65 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      {/* Navigation Bar */}
-      <NavBar />
-
-      {/* Hero Image Section */}
-      <section className="h-screen w-full min-h-[100vh] bg-neutral-950 rounded-md relative  flex flex-col items-center ">
-      <div className="flex items-center justify-center gap-10 my-10 mt-40">
-            <Link href={"/enhance-resume/upload-resume"}>
-            <Button
-            className="p-6 bg-black text-xl w-full sm:w-fit flex items-center justify-center gap-4  border border-white shadow-lg hover:shadow-xl hover:shadow-neutral-500 duration-500 hover:cursor-pointer">
-            <Sparkles className="h-5 w-5 mr-[-8px]" /> Enhance Resume
-            </Button>
+      {/* Hero Section */}
+      <section className="w-full min-h-screen bg-neutral-950 rounded-md relative flex flex-col items-center">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-950" />
+        {/* Main Content */}
+        <div className="relative z-10 text-center max-w-6xl px-6 pt-12">
+          {/* Main Heading */}
+          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-200 to-neutral-400 mb-6 leading-tight">
+            <FlipWords words={["Enhance", "Generate", "Optimize"]} />
+            <br />
+            Your Resume With 
+            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-red-400 bg-clip-text text-transparent"> AI Power</span>
+          </h1>
+          
+          {/* Subtitle */}
+          <p className="text-lg md:text-xl text-neutral-400 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Create ATS-optimized, professional resumes in minutes or get personalized suggestions to enhance your existing resume. 
+            <span className="text-white font-semibold"> No sign-up required</span> • Powered by advanced AI technology.
+          </p>
+          
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <Link href="/enhance-resume/upload-resume">
+              <Button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white text-lg font-semibold rounded-xl shadow-xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 min-w-[220px] h-12">
+                <Sparkles className="h-5 w-5 mr-2" />
+                Enhance Resume
+              </Button>
             </Link>
-            <Link href={"/generate-resume"}>
-            <Button 
-            className="p-6 text-xl w-full sm:w-fit flex text-white items-center justify-center gap-4 bg-black border border-white shadow-lg hover:shadow-xl hover:shadow-neutral-500 duration-500 hover:cursor-pointer">
-            <Brain className="h-5 w-5 mr-[-8px]" /> Generate Resume
-            </Button>
+            <Link href="/generate-resume">
+              <Button className="px-8 py-4 bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white text-lg font-semibold rounded-xl shadow-xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 min-w-[220px] h-12">
+                <Brain className="h-5 w-5 mr-2" />
+                Generate Resume
+              </Button>
             </Link>
           </div>
-          <h1 className="text-4xl text-white md:text-6xl bg-clip-text text-transparent font-sans font-bold mt-24 text-center">
-            <FlipWords words={["Enhance","Generate"]}/>
-            &nbsp;Your Resume With Our <br /><span className="text-red-400">Resume-Revamp</span>
-          </h1>
+          
+          {/* Feature Highlights */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-6 hover:bg-neutral-800/50 transition-all duration-300">
+              <Sparkles className="h-8 w-8 text-blue-400 mb-3 mx-auto" />
+              <h3 className="text-lg font-semibold text-white mb-2">AI Enhancement</h3>
+              <p className="text-sm text-neutral-400">Get personalized, actionable feedback to improve your resume&apos;s ATS compatibility and impact</p>
+            </div>
+            <div className="bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-6 hover:bg-neutral-800/50 transition-all duration-300">
+              <Brain className="h-8 w-8 text-purple-400 mb-3 mx-auto" />
+              <h3 className="text-lg font-semibold text-white mb-2">Smart Generation</h3>
+              <p className="text-sm text-neutral-400">Create professional resumes from scratch with AI-powered content suggestions and templates</p>
+            </div>
+            <div className="bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-6 hover:bg-neutral-800/50 transition-all duration-300">
+              <svg className="h-8 w-8 text-green-400 mb-3 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <h3 className="text-lg font-semibold text-white mb-2">ATS Optimized</h3>
+              <p className="text-sm text-neutral-400">Ensure your resume passes through Applicant Tracking Systems with copyable recommendations</p>
+            </div>
+          </div>
+        </div>
       </section>
-
     </main>
   );
 }

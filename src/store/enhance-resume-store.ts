@@ -1,5 +1,5 @@
 // store/resume-store.ts
-import { fileToBase64 } from '@/lib/fileUtils';
+import { fileToBase64 } from '@/lib/utils/fileUtils';
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/providers/theme-provider";
-import { ClerkProvider } from '@clerk/nextjs'
+import { Toaster } from 'sonner';
+import NavBar from '@/components/global/navbar';
 
 const font = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Resume-Revamp",
-  description: "AI-Powered Resume Enhancement Tool",
+  title: "ResumeGPT",
+  description: "AI-Powered Resume Enhancement and Generation Tool",
   icons: {
     icon: "/favicon.png",
   },
@@ -20,20 +20,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={font.className}>
-          <ThemeProvider
-                attribute="class"
-                defaultTheme="dark"
-                enableSystem
-                disableTransitionOnChange
-              >
-                {children}
-
-          </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en" className="dark">
+      <body className={font.className}>
+        <div className="flex flex-col h-screen overflow-hidden">
+          <NavBar />
+          <div className='h-screen pt-20'>
+            {children}
+          </div>
+        </div>
+        <Toaster 
+          theme="dark" 
+          position="top-right"
+          richColors 
+          expand 
+          closeButton
+        />
+      </body>
+    </html>
   );
 }

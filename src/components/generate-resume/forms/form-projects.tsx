@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { ProjectItem, Projects } from '@/lib/types';
 import { ArrowLeft, ArrowRight, Brain, FilePenLine, Loader } from 'lucide-react';
 import GenerateAIDescriptionCard from '../generate-ai-description-card';
 import FormSectionNavigationButtons from '../form-section-navigation-buttons';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 
 interface FormProjectsProps {
   projects: Projects;
@@ -44,7 +44,6 @@ const FormProjects: React.FC<FormProjectsProps> = ({ projects, setProjects, scro
 
             if (!response.ok) {
                 toast.error("Failed to Generate Suggestion");
-                console.log("Failed to fetch Description Suggestions.");
                 return;
             }
 
@@ -53,12 +52,10 @@ const FormProjects: React.FC<FormProjectsProps> = ({ projects, setProjects, scro
             setGeneratedDesc(suggestion);
             setUserDescription(suggestion);
 
-            console.log("Description Suggestion Successful.");
             toast.success("Generated Suggestion Successfully.");
 
         } catch (error) {
             toast.error("Error in Generating Suggestion")
-            console.log("Error in fetching the AI generated description.");
         } finally {
             setLoading(false);
         }
@@ -108,37 +105,43 @@ const FormProjects: React.FC<FormProjectsProps> = ({ projects, setProjects, scro
                                 <h1 className='text-black'>{index+1}</h1>
                             </div>
                             <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                Project Name :
+                                Project Name * :
                                 <input 
-                                value={project.name}
-                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0  w-3/5'
+                                    value={project.name}
+                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5 focus:bg-neutral-800 transition-colors'
                                     onChange={(e) => handleProjectInput(e, index, 'name')}
+                                    placeholder='Enter project name'
+                                    required
                                 />
                             </label>
                             <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                Tech Stack :
+                                Tech Stack * :
                                 <input 
-                                placeholder='E.g: Reactjs, Javascript'
-                                value={project.techstack}
-                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5'
+                                    placeholder='E.g: React.js, Node.js, MongoDB'
+                                    value={project.techstack}
+                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5 focus:bg-neutral-800 transition-colors'
                                     onChange={(e) => handleProjectInput(e, index, 'techstack')}
+                                    required
                                 />
                             </label>
                             <label className='w-4/5 flex items-center justify-between text-slate-200'>
                                 Git Link :
                                 <input 
-                                value={project.gitlink}
-                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5'
+                                    value={project.gitlink}
+                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5 focus:bg-neutral-800 transition-colors'
                                     onChange={(e) => handleProjectInput(e, index, 'gitlink')}
+                                    placeholder='https://github.com/username/project'
+                                    type='url'
                                 />
                             </label>
                             <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                Year :
+                                Year * :
                                 <input 
-                                placeholder='E.g: Aug 2023'
-                                value={project.year}
-                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0  w-3/5'
+                                    placeholder='E.g: Aug 2023 - Dec 2023'
+                                    value={project.year}
+                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5 focus:bg-neutral-800 transition-colors'
                                     onChange={(e) => handleProjectInput(e, index, 'year')}
+                                    required
                                 />
                             </label>
                             

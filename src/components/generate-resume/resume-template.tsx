@@ -27,8 +27,8 @@ const ResumeTemplate = ({title, img, url, disable}: Props) => {
   }
 
   return (
-    <div className={`m-2 hover:scale-105 transition ease-in-out mb-5 ${disable && 'cursor-not-allowed opacity-50'}`}>
-        <button onClick={(e) => handleClick(e)} className={disable && 'cursor-not-allowed'}>
+    <div className={`m-2 hover:scale-105 transition ease-in-out mb-5 ${disable ? 'cursor-not-allowed opacity-50' : ''}`}>
+        <button onClick={(e) => handleClick(e)} className={disable ? 'cursor-not-allowed' : ''}>
             <Image alt='Resume Template Name' width={300} height={600} className='rounded-xl' src={img}></Image>
             {
               !loading ?

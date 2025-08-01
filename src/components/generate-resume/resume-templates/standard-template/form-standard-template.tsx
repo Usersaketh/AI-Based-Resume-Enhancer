@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { BasicDetails, Education, TechnicalExperience, Certificates, Achievements, Projects, Skills } from '@/lib/types'
 import FormStepIndicator from '../../form-step-indicator';
 import FormTechnicalExperience from '../../forms/form-technical-experience';
@@ -98,9 +98,9 @@ const FormStandardTemplate: React.FC<FormStandardTemplateProps>  = (  {
     };
 
     return (
-        <div className='flex flex-col gap-4 h-full'>
+        <div className='flex flex-col h-full'>
 
-            <div className='mb-5'>
+            <div className='flex-shrink-0'>
                 <FormStepIndicator 
                     currentStep={currentStep}
                     latestStep={latestStep}
@@ -112,11 +112,9 @@ const FormStandardTemplate: React.FC<FormStandardTemplateProps>  = (  {
             {/* MultiStep Form */}
             <div
                 ref={scrollableContainerRef}
-             className='overflow-hidden overflow-y-scroll max-h-full scrollbar-thin scrollbar-thumb-neutral-800 scrollbar-track-neutral-700'>
+             className='flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-neutral-800 scrollbar-track-neutral-700 min-h-0'>
 
                 {/* BasicDetails */}
-
-                {/* TODO: Dynamic Fields and Labels using map */}
                 {
                     currentStep === 1 && 
                     <>
@@ -244,15 +242,16 @@ const FormStandardTemplate: React.FC<FormStandardTemplateProps>  = (  {
                 }
 
 
-                {/* Pagination Buttons */}
+            </div>
+
+            {/* Pagination Buttons - Fixed at bottom */}
+            <div className='flex-shrink-0'>
                 <FormPaginationButtons
                 currentStep={currentStep}
                 steps={steps}
                 onNext={handleNext}
                 onPrev={handlePrev}
                 />
-                
-
             </div>
 
         </div>
