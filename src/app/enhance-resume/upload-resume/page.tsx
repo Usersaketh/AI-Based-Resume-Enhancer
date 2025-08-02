@@ -170,11 +170,9 @@ const UploadResume: React.FC = () => {
     };
 
     return (
-        <div className="w-full min-h-screen bg-gradient-to-br from-neutral-950 via-neutral-900 to-black relative flex justify-center">
-            {/* Animated background elements */}
-            <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16" />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5" />
-            
+        <div className="w-full h-full relative flex justify-center">
+
+
             <div className="relative z-10 w-full max-w-7xl px-6 py-12">
                 <div className="text-center mb-12">
                     <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
@@ -222,7 +220,7 @@ const UploadResume: React.FC = () => {
                                         <FileText className="h-8 w-8 text-white" />
                                     </div>
                                     <p className="text-green-400 font-semibold text-sm mb-1">✓ UPLOADED SUCCESSFULLY</p>
-                                    <p className="font-semibold text-xl mb-6 text-white">{resumeFileBase64.name}</p>
+                                    <p className="font-semibold text-sm sm:text-lg lg:text-xl mb-6 text-white ">{resumeFileBase64.name}</p>
                                     <div className="flex gap-3 justify-center">
                                         <button
                                             onClick={handleRemoveFile}

@@ -91,9 +91,10 @@ const FormStandardTemplate: React.FC<FormStandardTemplateProps>  = (  {
 
     // Form Section Handlers
     const handleBasicDetailsInput = (e: React.ChangeEvent<HTMLInputElement>, field: keyof BasicDetails) => {
+        const value = e.target.value ?? '';
         setBasicDetails(prev => ({
           ...prev,
-          [field]: e.target.value,
+          [field]: value,
         }));
     };
 
@@ -119,62 +120,87 @@ const FormStandardTemplate: React.FC<FormStandardTemplateProps>  = (  {
                     currentStep === 1 && 
                     <>
                     <div className='flex flex-col gap-4'>
-                        <h1 className='font-semibold text-2xl border-b-2 pb-2'>Basic Details</h1>
-                        <div className='flex flex-col gap-2 px-10'>
-                            <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                Your Name :  
+                        <h1 className='font-semibold text-xl sm:text-2xl border-b-2 pb-2'>Basic Details</h1>
+                        <div className='flex flex-col gap-3 sm:gap-4 px-2 sm:px-4 lg:px-10'>
+                            <label className='w-full sm:w-4/5 flex flex-col sm:flex-row sm:items-center justify-between text-slate-200 gap-2 sm:gap-0'>
+                                <span className='text-sm sm:text-base'>Your Name :</span>
                                 <input 
-                                value={basicDetails.name}
-                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5'
+                                value={basicDetails?.name || ''}
+                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-full sm:w-3/5 p-2 sm:p-3'
                                 onChange={(e) => handleBasicDetailsInput(e, 'name')}
+                                placeholder="Enter your full name"
+                                autoComplete="off"
+                                name="name"
                                 />
                             </label>
-                            <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                Phone Number :  
+                            <label className='w-full sm:w-4/5 flex flex-col sm:flex-row sm:items-center justify-between text-slate-200 gap-2 sm:gap-0'>
+                                <span className='text-sm sm:text-base'>Phone Number :</span>
                                 <input
-                                value={basicDetails.phone}
-                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5'
+                                value={basicDetails?.phone || ''}
+                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-full sm:w-3/5 p-2 sm:p-3'
                                 onChange={(e) => handleBasicDetailsInput(e, 'phone')}
+                                placeholder="Enter phone number"
+                                autoComplete="off"
+                                name="phone"
+                                type="tel"
                                 />
                             </label>
-                            <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                City :  
+                            <label className='w-full sm:w-4/5 flex flex-col sm:flex-row sm:items-center justify-between text-slate-200 gap-2 sm:gap-0'>
+                                <span className='text-sm sm:text-base'>City :</span>
                                 <input
-                                value={basicDetails.city}
-                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5'
+                                value={basicDetails?.city || ''}
+                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-full sm:w-3/5 p-2 sm:p-3'
                                 onChange={(e) => handleBasicDetailsInput(e, 'city')}
+                                placeholder="Enter city"
+                                autoComplete="off"
+                                name="city"
                                 />
                             </label>
-                            <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                State :  
+                            <label className='w-full sm:w-4/5 flex flex-col sm:flex-row sm:items-center justify-between text-slate-200 gap-2 sm:gap-0'>
+                                <span className='text-sm sm:text-base'>State :</span>
                                 <input 
-                                value={basicDetails.state}
-                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5'
+                                value={basicDetails?.state || ''}
+                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-full sm:w-3/5 p-2 sm:p-3'
                                 onChange={(e) => handleBasicDetailsInput(e, 'state')}
+                                placeholder="Enter state"
+                                autoComplete="off"
+                                name="state"
                                 />
                             </label>
-                            <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                Email :  
+                            <label className='w-full sm:w-4/5 flex flex-col sm:flex-row sm:items-center justify-between text-slate-200 gap-2 sm:gap-0'>
+                                <span className='text-sm sm:text-base'>Email :</span>
                                 <input 
-                                value={basicDetails.gmail}
-                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5'
+                                value={basicDetails?.gmail || ''}
+                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-full sm:w-3/5 p-2 sm:p-3'
                                 onChange={(e) => handleBasicDetailsInput(e, 'gmail')}
+                                placeholder="Enter email address"
+                                autoComplete="off"
+                                name="email"
+                                type="email"
                                 />
                             </label>
-                            <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                GitHub Profile URL :  
+                            <label className='w-full sm:w-4/5 flex flex-col sm:flex-row sm:items-center justify-between text-slate-200 gap-2 sm:gap-0'>
+                                <span className='text-sm sm:text-base'>GitHub Profile URL :</span>  
                                 <input 
-                                value={basicDetails.github}
-                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5'
+                                value={basicDetails?.github || ''}
+                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-full sm:w-3/5 p-2 sm:p-3'
                                 onChange={(e) => handleBasicDetailsInput(e, 'github')}
+                                placeholder="Enter GitHub URL"
+                                autoComplete="off"
+                                name="github"
+                                type="url"
                                 />
                             </label>
-                            <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                LinkedIn Profile URL :  
+                            <label className='w-full sm:w-4/5 flex flex-col sm:flex-row sm:items-center justify-between text-slate-200 gap-2 sm:gap-0'>
+                                <span className='text-sm sm:text-base'>LinkedIn Profile URL :</span>
                                 <input 
-                                value={basicDetails.linkedIn}
-                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5'
+                                value={basicDetails?.linkedIn || ''}
+                                className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-full sm:w-3/5 p-2 sm:p-3'
                                 onChange={(e) => handleBasicDetailsInput(e, 'linkedIn')}
+                                placeholder="Enter LinkedIn URL"
+                                autoComplete="off"
+                                name="linkedin"
+                                type="url"
                                 />
                             </label>
                         </div>

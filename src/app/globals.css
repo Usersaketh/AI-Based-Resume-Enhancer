@@ -5,7 +5,17 @@
 body, html{
   padding: 0;
   margin: 0;
+  /* Fix mobile viewport height issues */
+  height: 100%;
+  overflow-x: hidden;
+}
 
+/* Mobile-friendly viewport adjustments */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari viewport fix */
+  body {
+    min-height: -webkit-fill-available;
+  }
 }
 
 *,

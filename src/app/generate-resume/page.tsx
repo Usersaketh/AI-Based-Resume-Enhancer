@@ -6,18 +6,18 @@ type Props = {}
 
 const GenerateResume = () => {
   return (
-    <div className='p-5 flex flex-col h-full'>
-        <h1 className='text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'>
+    <div className='p-3 sm:p-5 flex flex-col min-h-full'>
+        <h1 className='text-3xl sm:text-4xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'>
             Generate Resume
         </h1>
-        <h1 className='text-xl mt-1 ml-2'>
-            Resume Templates <span className='text-sm text-green-500'>- Multiple templates now available!</span>
+        <h1 className='text-base sm:text-lg lg:text-xl mt-1 ml-1 sm:ml-2'>
+            Resume Templates <span className='text-xs sm:text-sm text-green-500'>- Multiple templates now available!</span>
         </h1>
 
 
-        <div className='mt-8 p-5 w-full overflow-y-scroll overflow-hidden'>
+        <div className='mt-4 sm:mt-8 p-2 sm:p-5 w-full overflow-y-scroll overflow-hidden'>
             {/* Render Templates */}
-            <div className='grid grid-cols-4 gap-7'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-7'>
                 {
                     resumeTemplates.map((template, index) => (
                         <ResumeTemplate key={index} title={template.title} img={template.img} url={template.url} disable={template.disable}/>

@@ -144,18 +144,18 @@ const parseDescription = (text: string) => {
 
 const SuggestionCard: React.FC<Suggestion> = ({heading, description}) => {
   return (
-    <div className='flex gap-4 justify-start mb-8 w-full relative group'>
-      <div className='absolute w-[2px] h-full rounded-xl left-[18px] top-1 bg-gradient-to-b from-blue-400 to-purple-500' />
-      <div className='absolute w-[2px] h-14 rounded-xl left-[18px] -bottom-12 bg-gradient-to-b from-purple-500 to-transparent' />
-      <div className='p-3 z-50 rounded-full border-2 border-blue-400 bg-gradient-to-r from-blue-600 to-purple-600 h-fit shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-200'>
-          <Sparkles className='h-5 w-5 text-white'/>
+    <div className='flex gap-2 sm:gap-4 justify-start mb-6 sm:mb-8 w-full relative group'>
+      <div className='absolute w-[1px] sm:w-[2px] h-full rounded-xl left-[14px] sm:left-[18px] top-1 bg-gradient-to-b from-blue-400 to-purple-500' />
+      <div className='absolute w-[1px] sm:w-[2px] h-8 sm:h-14 rounded-xl left-[14px] sm:left-[18px] -bottom-8 sm:-bottom-12 bg-gradient-to-b from-purple-500 to-transparent' />
+      <div className='p-2 sm:p-3 z-50 rounded-full border-2 border-blue-400 bg-gradient-to-r from-blue-600 to-purple-600 h-fit shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-200'>
+          <Sparkles className='h-3 w-3 sm:h-5 sm:w-5 text-white'/>
       </div>
       <div className='rounded-xl text-sm shadow-xl border border-neutral-700 bg-gradient-to-br from-neutral-900/80 to-neutral-800/50 backdrop-blur-sm flex-1 group-hover:border-blue-500/30 transition-all duration-200'>
-        <h1 className='bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-t-xl text-lg p-4 font-semibold border-b border-neutral-700 text-blue-400 flex items-center gap-2'>
-          <ArrowRight className='h-4 w-4' />
+        <h1 className='bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-t-xl text-sm sm:text-lg p-3 sm:p-4 font-semibold border-b border-neutral-700 text-blue-400 flex items-center gap-2'>
+          <ArrowRight className='h-3 w-3 sm:h-4 sm:w-4' />
           {heading}
         </h1>
-        <div className='text-neutral-200 px-6 py-5 text-[15px] leading-[1.7] rounded-b-xl'>
+        <div className='text-neutral-200 px-3 sm:px-6 py-3 sm:py-5 text-sm sm:text-[15px] leading-[1.6] sm:leading-[1.7] rounded-b-xl'>
           {parseDescription(description)}
         </div>
       </div>

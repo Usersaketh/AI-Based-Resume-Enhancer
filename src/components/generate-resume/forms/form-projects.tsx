@@ -95,51 +95,51 @@ const FormProjects: React.FC<FormProjectsProps> = ({ projects, setProjects, scro
 
     return (
         <div className='flex flex-col gap-4'>
-            <h1 className='font-semibold text-2xl border-b-2 pb-2'>Projects</h1>
+            <h1 className='font-semibold text-xl sm:text-2xl border-b-2 pb-2'>Projects</h1>
 
-            <div className='flex flex-col gap-10 px-10'>
+            <div className='flex flex-col gap-6 sm:gap-10 px-4 sm:px-10'>
                 {
                     projects.map((project, index) => (
-                        <div key={index} className={`flex flex-col gap-2 w-full ${currentProjIndex === index ? '' : 'hidden'}`}>
-                            <div className='text-lg font-semibold rounded-full bg-slate-200 border-neutral-700 border-2 h-10 w-10 flex items-center justify-center'>
+                        <div key={index} className={`flex flex-col gap-3 sm:gap-2 w-full ${currentProjIndex === index ? '' : 'hidden'}`}>
+                            <div className='text-sm sm:text-lg font-semibold rounded-full bg-slate-200 border-neutral-700 border-2 h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center'>
                                 <h1 className='text-black'>{index+1}</h1>
                             </div>
-                            <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                Project Name * :
+                            <label className='w-full sm:w-4/5 flex flex-col sm:flex-row sm:items-center justify-between text-slate-200 gap-2 sm:gap-0'>
+                                <span className='text-sm sm:text-base'>Project Name * :</span>
                                 <input 
                                     value={project.name}
-                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5 focus:bg-neutral-800 transition-colors'
+                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-full sm:w-3/5 focus:bg-neutral-800 transition-colors p-2 sm:p-3'
                                     onChange={(e) => handleProjectInput(e, index, 'name')}
                                     placeholder='Enter project name'
                                     required
                                 />
                             </label>
-                            <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                Tech Stack * :
+                            <label className='w-full sm:w-4/5 flex flex-col sm:flex-row sm:items-center justify-between text-slate-200 gap-2 sm:gap-0'>
+                                <span className='text-sm sm:text-base'>Tech Stack * :</span>
                                 <input 
                                     placeholder='E.g: React.js, Node.js, MongoDB'
                                     value={project.techstack}
-                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5 focus:bg-neutral-800 transition-colors'
+                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-full sm:w-3/5 focus:bg-neutral-800 transition-colors p-2 sm:p-3'
                                     onChange={(e) => handleProjectInput(e, index, 'techstack')}
                                     required
                                 />
                             </label>
-                            <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                Git Link :
+                            <label className='w-full sm:w-4/5 flex flex-col sm:flex-row sm:items-center justify-between text-slate-200 gap-2 sm:gap-0'>
+                                <span className='text-sm sm:text-base'>Git Link :</span>
                                 <input 
                                     value={project.gitlink}
-                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5 focus:bg-neutral-800 transition-colors'
+                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-full sm:w-3/5 focus:bg-neutral-800 transition-colors p-2 sm:p-3'
                                     onChange={(e) => handleProjectInput(e, index, 'gitlink')}
                                     placeholder='https://github.com/username/project'
                                     type='url'
                                 />
                             </label>
-                            <label className='w-4/5 flex items-center justify-between text-slate-200'>
-                                Year * :
+                            <label className='w-full sm:w-4/5 flex flex-col sm:flex-row sm:items-center justify-between text-slate-200 gap-2 sm:gap-0'>
+                                <span className='text-sm sm:text-base'>Year * :</span>
                                 <input 
                                     placeholder='E.g: Aug 2023 - Dec 2023'
                                     value={project.year}
-                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-3/5 focus:bg-neutral-800 transition-colors'
+                                    className='bg-neutral-900 border-none rounded-lg focus:ring-0 w-full sm:w-3/5 focus:bg-neutral-800 transition-colors p-2 sm:p-3'
                                     onChange={(e) => handleProjectInput(e, index, 'year')}
                                     required
                                 />

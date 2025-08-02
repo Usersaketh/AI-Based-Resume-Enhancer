@@ -95,36 +95,36 @@ const FormTechnicalExperience: React.FC<Props> = ({ technicalExperience, setTech
         <div className='flex flex-col gap-4'>
             <h1 className='font-semibold text-2xl border-b-2 pb-2'>Technical Experience</h1>
 
-            <div className='flex flex-col gap-10 px-10'>
+            <div className='flex flex-col gap-10 px-5 sm:px-10'>
 
                 {
                     technicalExperience.map((exp, index) => (
-                    <div key={index} className={`flex flex-col gap-2 w-full ${currentExpIndex === index ? '' : 'hidden'}`}>
+                    <div key={index} className={`flex flex-col gap-4 w-full ${currentExpIndex === index ? '' : 'hidden'}`}>
                         <div className='text-lg font-semibold rounded-full bg-slate-200 border-neutral-700 border-2 h-10 w-10 flex items-center justify-center'>
                           <h1 className='text-black'>{index+1}</h1>
                         </div>
-                        <label className='w-4/5 flex items-center justify-between text-slate-200'>
+                        <label className='w-5/5 flex items-center justify-between text-slate-200 lg:w-4/5'>
                         Company Name :
                         <input
                             value={exp.companyName}
-                            className='bg-neutral-900 border-none rounded-lg focus:ring-0  w-3/5'
+                            className='bg-neutral-900 border-none rounded-lg focus:ring-0  w-5/5'
                             onChange={(e) => handleTechnicalExperienceInput(e, index, 'companyName')}
                         />
                         </label>
-                        <label className='w-4/5 flex items-center justify-between text-slate-200'>
+                        <label className='w-5/5 flex items-center justify-between text-slate-200 lg:w-4/5'>
                         Role :
                         <input
                             value={exp.role}
-                            className='bg-neutral-900 border-none rounded-lg focus:ring-0  w-3/5'
+                            className='bg-neutral-900 border-none rounded-lg focus:ring-0  w-5/5'
                             onChange={(e) => handleTechnicalExperienceInput(e, index, 'role')}
                         />
                         </label>
-                        <label className='w-4/5 flex items-center justify-between text-slate-200'>
+                        <label className='w-5/5 flex items-center justify-between text-slate-200 lg:w-4/5'>
                         Duration :
                         <input
                             placeholder='E.g: Aug 2024-Nov 2024'
                             value={exp.duration}
-                            className='bg-neutral-900 border-none rounded-lg focus:ring-0  w-3/5'
+                            className='bg-neutral-900 border-none rounded-lg focus:ring-0  w-5/5'
                             onChange={(e) => handleTechnicalExperienceInput(e, index, 'duration')}
                         />
                         </label>

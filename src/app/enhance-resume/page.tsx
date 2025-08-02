@@ -242,92 +242,100 @@ const EnhanceResume = () => {
     };
 
     return (
-        <div className='h-full flex flex-col gap-4 py-6 px-6 pb-5 bg-neutral-950'>
+        <div className='min-h-full flex flex-col gap-4 py-3 sm:py-6 px-3 sm:px-6 pb-5 '>
             {/* Enhanced Header with Action Buttons */}
-            <div className='flex flex-col lg:flex-row lg:justify-between lg:items-center mb-6 gap-4'>
-                <div className='flex flex-col lg:flex-row lg:items-center gap-4'>
-                    <h1 className='text-3xl lg:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'>
+            <div className='flex flex-col lg:flex-row lg:justify-between lg:items-center mb-4 sm:mb-6 gap-3 sm:gap-4'>
+                <div className='flex flex-col lg:flex-row lg:items-center gap-3 sm:gap-4'>
+                    <h1 className='text-2xl sm:text-3xl lg:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-center lg:text-left'>
                         Resume Enhancement Suite
                     </h1>
-                    <span className='text-sm text-neutral-400 border border-neutral-600 px-3 py-2 rounded-full flex items-center gap-2 bg-neutral-800/50 w-fit'>
+                    <span className='text-xs sm:text-sm text-neutral-400 border border-neutral-600 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full flex items-center gap-2 bg-neutral-800/50 w-fit mx-auto lg:mx-0'>
                         <FileText className='h-3 w-3' />
-                        {resumeFile?.name || 'Resume Analysis'}
+                        <span className='hidden sm:inline'>{resumeFile?.name || 'Resume Analysis'}</span>
+                        <span className='sm:hidden'>Analysis</span>
                     </span>
                 </div>
                 
-                <div className='flex gap-3 flex-wrap'>
+                <div className='flex gap-2 sm:gap-3 flex-wrap justify-center lg:justify-start'>
                     <button
                         onClick={() => performDeepAnalysis('ats-optimization')}
                         disabled={loading}
-                        className='bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-4 py-2.5 rounded-lg flex items-center gap-2 text-sm disabled:opacity-50 transition-all duration-200 shadow-lg hover:shadow-blue-500/25'
+                        className='bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg flex items-center gap-1 sm:gap-2 text-xs sm:text-sm disabled:opacity-50 transition-all duration-200 shadow-lg hover:shadow-blue-500/25'
                     >
-                        <Target className='h-4 w-4' />
-                        ATS Analysis
+                        <Target className='h-3 w-3 sm:h-4 sm:w-4' />
+                        <span className='hidden sm:inline'>ATS Analysis</span>
+                        <span className='sm:hidden'>ATS</span>
                     </button>
                     <button
                         onClick={performBenchmarking}
                         disabled={loading}
-                        className='bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-4 py-2.5 rounded-lg flex items-center gap-2 text-sm disabled:opacity-50 transition-all duration-200 shadow-lg hover:shadow-green-500/25'
+                        className='bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg flex items-center gap-1 sm:gap-2 text-xs sm:text-sm disabled:opacity-50 transition-all duration-200 shadow-lg hover:shadow-green-500/25'
                     >
-                        <TrendingUp className='h-4 w-4' />
-                        Benchmark
+                        <TrendingUp className='h-3 w-3 sm:h-4 sm:w-4' />
+                        <span className='hidden sm:inline'>Benchmark</span>
+                        <span className='sm:hidden'>Benchmarking</span>
                     </button>
                     <button
                         onClick={generateCoverLetter}
                         disabled={loading}
-                        className='bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-4 py-2.5 rounded-lg flex items-center gap-2 text-sm disabled:opacity-50 transition-all duration-200 shadow-lg hover:shadow-purple-500/25'
+                        className='bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg flex items-center gap-1 sm:gap-2 text-xs sm:text-sm disabled:opacity-50 transition-all duration-200 shadow-lg hover:shadow-purple-500/25'
                     >
-                        <Mail className='h-4 w-4' />
-                        Cover Letter
+                        <Mail className='h-3 w-3 sm:h-4 sm:w-4' />
+                        <span className='hidden sm:inline'>Cover Letter</span>
+                        <span className='sm:hidden'>Cover letter</span>
                     </button>
                 </div>
             </div>
 
             {/* Enhanced Tab Navigation */}
-            <div className='flex border-b border-neutral-700 mb-6 bg-neutral-900/30 rounded-t-xl backdrop-blur-sm'>
+            <div className='flex gap-4 border-b border-neutral-700 mb-4 sm:mb-6 bg-neutral-900/30 rounded-t-md backdrop-blur-sm '>
                 <button
                     onClick={() => setActiveTab('basic')}
-                    className={`px-6 py-4 text-sm font-medium border-b-2 transition-all duration-200 ${
+                    className={`px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-medium border-b-2 transition-all duration-200 whitespace-nowrap ${
                         activeTab === 'basic' 
-                            ? 'border-blue-500 text-blue-400 bg-blue-500/10' 
+                            ? 'border-blue-500 text-blue-400 bg-blue-500/10 rounded-t-md' 
                             : 'border-transparent text-neutral-400 hover:text-neutral-300 hover:border-neutral-600'
                     }`}
                 >
-                    <Sparkles className='h-4 w-4 inline mr-2' />
-                    Basic Suggestions
+                    <Sparkles className='h-3 w-3 sm:h-4 sm:w-4 inline mr-1 sm:mr-2' />
+                    <span className='hidden sm:inline'>Basic Suggestions</span>
+                    <span className='sm:hidden'>Basic</span>
                 </button>
                 <button
                     onClick={() => setActiveTab('deep')}
-                    className={`px-6 py-4 text-sm font-medium border-b-2 transition-all duration-200 ${
+                    className={`px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-medium border-b-2 transition-all duration-200 whitespace-nowrap ${
                         activeTab === 'deep' 
-                            ? 'border-blue-500 text-blue-400 bg-blue-500/10' 
+                            ? 'border-blue-500 text-blue-400 bg-blue-500/10 rounded-t-md' 
                             : 'border-transparent text-neutral-400 hover:text-neutral-300 hover:border-neutral-600'
                     }`}
                 >
-                    <Brain className='h-4 w-4 inline mr-2' />
-                    Deep Analysis
+                    <Brain className='h-3 w-3 sm:h-4 sm:w-4 inline mr-1 sm:mr-2' />
+                    <span className='hidden sm:inline'>Deep Analysis</span>
+                    <span className='sm:hidden'>Deep</span>
                 </button>
                 <button
                     onClick={() => setActiveTab('benchmark')}
-                    className={`px-6 py-4 text-sm font-medium border-b-2 transition-all duration-200 ${
+                    className={`px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-medium border-b-2 transition-all duration-200 whitespace-nowrap ${
                         activeTab === 'benchmark' 
-                            ? 'border-blue-500 text-blue-400 bg-blue-500/10' 
+                            ? 'border-blue-500 text-blue-400 bg-blue-500/10 rounded-t-md' 
                             : 'border-transparent text-neutral-400 hover:text-neutral-300 hover:border-neutral-600'
                     }`}
                 >
-                    <TrendingUp className='h-4 w-4 inline mr-2' />
-                    Benchmarking
+                    <TrendingUp className='h-3 w-3 sm:h-4 sm:w-4 inline mr-1 sm:mr-2' />
+                    <span className='hidden sm:inline'>Benchmarking</span>
+                    <span className='sm:hidden'>Bench</span>
                 </button>
                 <button
                     onClick={() => setActiveTab('cover-letter')}
-                    className={`px-6 py-4 text-sm font-medium border-b-2 transition-all duration-200 ${
+                    className={`px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-medium border-b-2 transition-all duration-200 whitespace-nowrap ${
                         activeTab === 'cover-letter' 
-                            ? 'border-blue-500 text-blue-400 bg-blue-500/10' 
+                            ? 'border-blue-500 text-blue-400 bg-blue-500/10 rounded-t-md' 
                             : 'border-transparent text-neutral-400 hover:text-neutral-300 hover:border-neutral-600'
                     }`}
                 >
-                    <Mail className='h-4 w-4 inline mr-2' />
-                    Cover Letter
+                    <Mail className='h-3 w-3 sm:h-4 sm:w-4 inline mr-1 sm:mr-2' />
+                    <span className='hidden sm:inline'>Cover Letter</span>
+                    <span className='sm:hidden'>Cover</span>
                 </button>
             </div>
 
@@ -464,7 +472,7 @@ const EnhanceResume = () => {
                         </div>
                         {benchmark ? (
                             <div className='space-y-4'>
-                                <div className='grid grid-cols-3 gap-4'>
+                                <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
                                     <div className='bg-neutral-800 p-4 rounded-lg text-center'>
                                         <h3 className='text-sm text-neutral-400'>Overall Score</h3>
                                         <p className='text-2xl font-bold text-white'>{benchmark.overallScore}</p>
@@ -482,36 +490,36 @@ const EnhanceResume = () => {
                                 {benchmark.salaryImpact && (
                                     <div className='bg-gradient-to-r from-green-900/20 to-emerald-900/20 p-4 rounded-lg border border-green-800'>
                                         <h3 className='font-semibold text-green-400 mb-2'>Salary Impact Analysis</h3>
-                                        <p className='text-lg font-bold text-white'>{benchmark.salaryImpact.estimatedSalaryRange}</p>
-                                        <p className='text-sm text-green-300'>{benchmark.salaryImpact.improvementPotential}</p>
+                                        <p className='text-lg font-bold text-white break-words'>{benchmark.salaryImpact.estimatedSalaryRange}</p>
+                                        <p className='text-sm text-green-300 break-words'>{benchmark.salaryImpact.improvementPotential}</p>
                                     </div>
                                 )}
 
                                 {benchmark.actionableRecommendations && (
                                     <div className='bg-neutral-800 p-4 rounded-lg'>
                                         <h3 className='font-semibold text-yellow-400 mb-3'>Action Plan</h3>
-                                        <div className='grid grid-cols-3 gap-4'>
-                                            <div>
+                                        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
+                                            <div className='bg-neutral-700/50 p-4 rounded-lg'>
                                                 <h4 className='text-sm font-medium text-green-300 mb-2'>Immediate (0-1 week)</h4>
                                                 <ul className='space-y-1'>
                                                     {benchmark.actionableRecommendations.immediate?.map((action: string, i: number) => (
-                                                        <li key={i} className='text-xs text-neutral-300'>• {action}</li>
+                                                        <li key={i} className='text-xs text-neutral-300 break-words'>• {action}</li>
                                                     ))}
                                                 </ul>
                                             </div>
-                                            <div>
+                                            <div className='bg-neutral-700/50 p-4 rounded-lg'>
                                                 <h4 className='text-sm font-medium text-yellow-300 mb-2'>Short-term (1-4 weeks)</h4>
                                                 <ul className='space-y-1'>
                                                     {benchmark.actionableRecommendations.shortTerm?.map((action: string, i: number) => (
-                                                        <li key={i} className='text-xs text-neutral-300'>• {action}</li>
+                                                        <li key={i} className='text-xs text-neutral-300 break-words'>• {action}</li>
                                                     ))}
                                                 </ul>
                                             </div>
-                                            <div>
+                                            <div className='bg-neutral-700/50 p-4 rounded-lg'>
                                                 <h4 className='text-sm font-medium text-blue-300 mb-2'>Long-term (1-3 months)</h4>
                                                 <ul className='space-y-1'>
                                                     {benchmark.actionableRecommendations.longTerm?.map((action: string, i: number) => (
-                                                        <li key={i} className='text-xs text-neutral-300'>• {action}</li>
+                                                        <li key={i} className='text-xs text-neutral-300 break-words'>• {action}</li>
                                                     ))}
                                                 </ul>
                                             </div>
@@ -540,30 +548,45 @@ const EnhanceResume = () => {
                         <div className='flex justify-between items-center mb-4'>
                             <h2 className='text-xl font-semibold text-sky-400'>AI-Generated Cover Letter</h2>
                             {coverLetter && (
-                                <button 
-                                    onClick={downloadCoverLetterReport}
-                                    className='bg-neutral-700 hover:bg-neutral-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm'
-                                >
-                                    <Download className='h-4 w-4' />
-                                    Download
-                                </button>
+                                <div className='flex-col items-center gap-2 flex sm:flex-row'>
+                                    <button 
+                                        onClick={downloadCoverLetterReport}
+                                        className='bg-neutral-700 hover:bg-neutral-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm'
+                                    >
+                                        <Download className='h-4 w-4' />
+                                        Download
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(coverLetter.coverLetter);
+                                            toast.success('Cover letter copied to clipboard!');
+                                        }}
+                                        className='bg-neutral-700 hover:bg-neutral-600 text-white px-4 py-2 rounded-lg flex gap-2 text-sm'
+                                    >
+                                        📋 Copy
+                                    </button>
+                                </div>
+                                
+                                
                             )}
+                            
                         </div>
                         
                         {coverLetter ? (
                             <div className='space-y-6'>
-                                <div className='bg-white text-black p-6 rounded-lg font-serif leading-relaxed'>
-                                    <div className='whitespace-pre-line'>
+                                
+                                <div className='bg-white text-black p-6 rounded-lg font-serif leading-relaxed relative'>
+                                    <div className='whitespace-pre-line '>
                                         {coverLetter.coverLetter}
                                     </div>
                                 </div>
                                 
-                                <div className='grid grid-cols-2 gap-4'>
+                                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                                     <div className='bg-neutral-800 p-4 rounded-lg'>
                                         <h3 className='font-semibold text-green-400 mb-2'>Key Highlights</h3>
                                         <ul className='space-y-1'>
                                             {coverLetter.keyHighlights?.map((highlight: string, i: number) => (
-                                                <li key={i} className='text-sm text-neutral-300'>• {highlight}</li>
+                                                <li key={i} className='text-sm text-neutral-300 break-words'>• {highlight}</li>
                                             ))}
                                         </ul>
                                     </div>
@@ -572,7 +595,7 @@ const EnhanceResume = () => {
                                         <h3 className='font-semibold text-blue-400 mb-2'>Personalized Elements</h3>
                                         <ul className='space-y-1'>
                                             {coverLetter.personalizedElements?.map((element: string, i: number) => (
-                                                <li key={i} className='text-sm text-neutral-300'>• {element}</li>
+                                                <li key={i} className='text-sm text-neutral-300 break-words'>• {element}</li>
                                             ))}
                                         </ul>
                                     </div>

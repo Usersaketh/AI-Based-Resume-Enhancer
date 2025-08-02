@@ -11,8 +11,9 @@ interface StepIndicatorProps {
 
 const FormStepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, latestStep, steps, onStepClick }) => {
   return (
-   <div className='flex gap-4 justify-center items-center mb-2'>
-    <h1 className='text-sm'>Step {currentStep} of {steps.length}</h1>
+   <div className='flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center items-center mb-2 sm:mb-4'>
+    <h1 className='text-xs sm:text-sm font-medium'>Step {currentStep} of {steps.length}</h1>
+    <div className='flex gap-2 sm:gap-4 flex-wrap justify-center'>
         {
             steps.map((step, index) => (
                 <div key={index} className='relative group'>
@@ -25,7 +26,7 @@ const FormStepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, latestSt
                             onStepClick(index+1);
                         }
                     }}
-                    className={`h-4 w-4 rounded-full
+                    className={`h-3 w-3 sm:h-4 sm:w-4 rounded-full
 
                     ${currentStep === index+1 ? "border-2 border-pink-500" : 
                         (currentStep > index+1  || index + 1 <= latestStep) ?
@@ -36,7 +37,7 @@ const FormStepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, latestSt
                     flex items-center justify-center 
                     ` }>
                         {
-                            currentStep === index+1 && <p className='h-2 sca w-2 rounded-full bg-pink-300'></p>
+                            currentStep === index+1 && <p className='h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-pink-300'></p>
                         }
                     </div>
                     {
@@ -47,6 +48,7 @@ const FormStepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, latestSt
 
             ))
         }
+    </div>
    </div>   
   );
 };

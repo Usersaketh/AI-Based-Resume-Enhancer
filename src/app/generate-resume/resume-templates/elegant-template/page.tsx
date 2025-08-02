@@ -28,24 +28,24 @@ const ElegantTemplate = () => {
   const resumeDownloadRef = useRef(null);
 
   return (
-    <div className='flex gap-10 h-screen p-4 px-14 overflow-hidden'>
+    <div className='flex flex-col lg:flex-row gap-4 lg:gap-10 min-h-screen lg:h-screen p-2 sm:p-4 lg:px-14 lg:overflow-hidden'>
       <div className='flex-1 flex flex-col gap-4 h-full min-h-0'>
-        <div className='flex justify-between flex-shrink-0'>
+        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center flex-shrink-0 gap-3 sm:gap-0'>
           <h1
-          className='text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-rose-500'>
+          className='text-xl sm:text-2xl lg:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-rose-500'>
             Elegant Template
           </h1>
-          <div className='flex gap-5 items-center'>
-            <div className='text-sm text-purple-600 bg-purple-50 px-3 py-1 rounded-full'>
-              ✨ Elegant Design
+          <div className='flex sm:flex-row gap-3 sm:gap-5 items-center sm:items-center'>
+            <div className='text-xs sm:text-sm text-purple-600 bg-purple-50 px-2 sm:px-3 py-1 rounded-full flex items-center gap-1'>
+              ✨ <span className='hidden sm:inline'>Elegant Design</span><span className='sm:hidden'>Elegant</span>
             </div>
             <ReactToPrint
               trigger={() => (
                 <button
-                  className='bg-neutral-900 border-2 p-2 rounded-lg flex items-center hover:opacity-90'
+                  className='bg-neutral-900 border-2 p-2 rounded-lg flex items-center hover:opacity-90 text-sm'
                 >
-                  <FileDown className='h-4 w-4' />
-                  <p className='ml-1 text-sm'>Download PDF</p>
+                  <FileDown className='h-3 w-3 sm:h-4 sm:w-4' />
+                  <p className='ml-1 text-xs sm:text-sm'>Download PDF</p>
                 </button>
               )}
               content={() => resumeDownloadRef.current}
@@ -56,15 +56,15 @@ const ElegantTemplate = () => {
         </div>
 
         {/* Compact UX Controls */}
-        <div className='px-2 flex-shrink-0'>
-          <div className='rounded-lg space-y-3'>
+        <div className='px-1 flex-shrink-0'>
+          <div className='flex items-center gap-2 sm:gap-3 bg-neutral-900/30 backdrop-blur-sm rounded-md p-2 sm:p-3 border border-neutral-700'>
             <TemplateSwitcher />
             
           </div>
         </div>
 
         {/* Resume Form - Scrollable */}
-        <div className='px-5 flex-1 min-h-0'>
+        <div className='px-2 sm:px-5 flex-1 min-h-0'>
           <FormStandardTemplate 
           setBasicDetails={setBasicDetails}
           setEducation={setEducation}
@@ -86,7 +86,7 @@ const ElegantTemplate = () => {
       </div>
 
       {/* Resume Viewer */}
-      <div className='w-2/5 h-full border-l border-gray-200 pl-6'>
+      <div className='w-full sm:w-2/5 h-full border-gray-200 px-2 mb-12'>
 
         {/* Render Elegant Resume */}
         <div ref={resumeDownloadRef} className='h-full w-full'>

@@ -26,20 +26,21 @@ const TemplateSwitcher: React.FC<TemplateSwitcherProps> = ({ currentTemplate }) 
   }
 
   return (
-    <div className='flex items-center gap-2 mb-4 mt-2'>
-      <span className='text-sm font-medium text-gray-600'>Switch Template:</span>
-      <div className='flex gap-4'>
+    <div className='flex flex-col sm:flex-row sm:items-center mb-1 gap-2 sm:gap-6 sm:mb-2 sm:mt-2'>
+      <span className='text-sm font-medium text-gray-600 flex-shrink-0'>Switch Template:</span>
+      <div className='flex gap-3 flex-wrap sm:gap-6'>
         {resumeTemplates.filter(template => !template.disable).map((template, index) => (
           <button
             key={index}
             onClick={() => handleTemplateSwitch(template.url)}
-            className={`px-3 py-1 text-xs rounded-full transition-colors ${
+            className={`px-3 sm:px-3 py-1 text-xs rounded-full transition-colors flex-shrink-0 ${
               template.url === current
                 ? 'bg-blue-500 text-white' 
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
-            {template.title}
+            <span className='hidden sm:inline'>{template.title}</span>
+            <span className='sm:hidden'>{template.title.split(' ')[0]}</span>
           </button>
         ))}
       </div>

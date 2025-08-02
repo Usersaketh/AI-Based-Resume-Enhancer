@@ -26,7 +26,7 @@ const FormSectionNavigationButtons: React.FC<NavigationButtonsProps> = ({
   disableRemove = false,
 }) => {
   return (
-    <div className='flex justify-between mt-4'>
+    <div className='flex justify-between mt-4 md:flex-row flex-col gap-4'>
         <div className='flex gap-4'>
             <button
                 onClick={onPrev}
