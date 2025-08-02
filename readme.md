@@ -158,109 +158,40 @@
 
 ## 📁 Project Structure
 
-Directory structure:
-└── usersaketh-resumegpt-resumeenhancer/
-    ├── readme.md
-    ├── components.json
-    ├── next.config.mjs
-    ├── package.json
-    ├── postcss.config.mjs
-    ├── tailwind.config.ts
-    ├── tsconfig.json
-    ├── .env.example
-    ├── .eslintrc.json
-    └── src/
-        ├── middleware.ts
-        ├── app/
-        │   ├── globals.css
-        │   ├── layout.tsx
-        │   ├── not-found.tsx
-        │   ├── page.tsx
-        │   ├── api/
-        │   │   ├── enhance-resume/
-        │   │   │   ├── benchmark/
-        │   │   │   │   └── route.ts
-        │   │   │   ├── cover-letter/
-        │   │   │   │   └── route.ts
-        │   │   │   ├── deep-analysis/
-        │   │   │   │   └── route.ts
-        │   │   │   └── generate-suggestions/
-        │   │   │       └── route.ts
-        │   │   └── generate-resume/
-        │   │       ├── projects-suggestion/
-        │   │       │   └── route.ts
-        │   │       └── technical-experience-suggestion/
-        │   │           └── route.ts
-        │   ├── enhance-resume/
-        │   │   ├── page.tsx
-        │   │   └── upload-resume/
-        │   │       ├── page-fixed.tsx
-        │   │       └── page.tsx
-        │   └── generate-resume/
-        │       ├── page.tsx
-        │       └── resume-templates/
-        │           ├── double-column-template/
-        │           │   └── page.tsx
-        │           ├── elegant-template/
-        │           │   └── page.tsx
-        │           ├── modern-template/
-        │           │   └── page.tsx
-        │           └── standard-template/
-        │               └── page.tsx
-        ├── components/
-        │   ├── enhance-resume/
-        │   │   ├── pdf-viewer.tsx
-        │   │   └── suggestion-card.tsx
-        │   ├── generate-resume/
-        │   │   ├── auto-save.tsx
-        │   │   ├── character-counter.tsx
-        │   │   ├── form-pagination-buttons.tsx
-        │   │   ├── form-section-navigation-buttons.tsx
-        │   │   ├── form-step-indicator.tsx
-        │   │   ├── generate-ai-description-card.tsx
-        │   │   ├── resume-template.tsx
-        │   │   ├── section-toggle.tsx
-        │   │   ├── simple-section-toggle.tsx
-        │   │   ├── simple-test.tsx
-        │   │   ├── template-switcher.tsx
-        │   │   ├── forms/
-        │   │   │   ├── form-achievements.tsx
-        │   │   │   ├── form-certificates.tsx
-        │   │   │   ├── form-education.tsx
-        │   │   │   ├── form-projects.tsx
-        │   │   │   ├── form-skills.tsx
-        │   │   │   └── form-technical-experience.tsx
-        │   │   └── resume-templates/
-        │   │       └── standard-template/
-        │   │           ├── form-standard-template.tsx
-        │   │           └── resume-preview-standard-template.tsx
-        │   ├── global/
-        │   │   ├── flip-words.tsx
-        │   │   ├── navbar.tsx
-        │   │   └── resume-card.tsx
-        │   └── ui/
-        │       ├── button.tsx
-        │       ├── error-boundary.tsx
-        │       ├── loading-skeletons.tsx
-        │       ├── progress.tsx
-        │       └── skeleton.tsx
-        ├── lib/
-        │   ├── analytics.ts
-        │   ├── cache.ts
-        │   ├── constant.ts
-        │   ├── demoData.ts
-        │   ├── downloadUtils.ts
-        │   ├── text-formatting.ts
-        │   ├── types.ts
-        │   ├── utils.ts
-        │   └── utils/
-        │       ├── async-utils.ts
-        │       ├── downloadUtils.ts
-        │       └── fileUtils.ts
-        └── store/
-            ├── enhance-resume-store.ts
-            ├── generate-resume-store.ts
-            └── section-toggle-store.ts
+```
+src/
+├── app/                          # Next.js App Router
+│   ├── api/                      # API endpoints
+│   │   ├── enhance-resume/       # Resume enhancement APIs
+│   │   └── generate-resume/      # Resume generation APIs
+│   ├── enhance-resume/           # Resume enhancement pages
+│   │   └── upload-resume/        # Upload and analyze resume
+│   ├── generate-resume/          # Resume generation pages
+│   │   └── resume-templates/     # Template selection
+│   ├── globals.css               # Global styles
+│   ├── layout.tsx               # Root layout with navbar
+│   ├── page.tsx                 # Home page
+│   └── not-found.tsx            # 404 page
+├── components/                   # Reusable React components
+│   ├── enhance-resume/          # Enhancement-specific components
+│   ├── generate-resume/         # Generation-specific components
+│   │   ├── forms/               # Form components for each section
+│   │   └── resume-templates/    # Template-specific components
+│   ├── global/                  # Shared components (navbar, etc.)
+│   └── ui/                      # Base UI components
+├── lib/                         # Utility functions and types
+│   ├── utils/                   # Utility functions
+│   │   └── fileUtils.ts         # File handling utilities
+│   ├── constant.ts              # Constants and template configurations
+│   ├── firestore-functions.ts   # Firebase/Firestore utilities
+│   ├── types.ts                # TypeScript type definitions
+│   └── utils.ts                # General utilities
+├── store/                       # Zustand state management
+│   ├── enhance-resume-store.ts  # Enhancement state
+│   └── generate-resume-store.ts # Generation state
+├── firebase.ts                 # Firebase configuration
+└── middleware.ts               # Next.js middleware
+```
 
 ## 🎮 How to Use
 
