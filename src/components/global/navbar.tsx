@@ -1,6 +1,6 @@
 'use client';
 
-import { Sparkles, Brain, Bot, Menu, X } from 'lucide-react';
+import { Sparkles, Bot, Menu, X } from 'lucide-react';
 import Link from 'next/link'
 import { useState } from 'react';
 
@@ -23,11 +23,6 @@ const NavBar = () => {
                     <Sparkles className="h-4 w-4 lg:h-5 lg:w-5" />
                     <span className="text-sm lg:text-base font-medium">Enhance Resume</span>
                 </Link>
-                <Link href="/generate-resume" 
-                      className="flex items-center gap-2 text-neutral-300 hover:text-white transition-colors px-3 lg:px-4 py-2 rounded-lg hover:bg-neutral-800">
-                    <Brain className="h-4 w-4 lg:h-5 lg:w-5" />
-                    <span className="text-sm lg:text-base font-medium">Generate Resume</span>
-                </Link>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -49,14 +44,6 @@ const NavBar = () => {
                         >
                             <Sparkles className="h-5 w-5" />
                             <span className="text-base font-medium">Enhance Resume</span>
-                        </Link>
-                        <Link 
-                            href="/generate-resume" 
-                            onClick={() => setIsMenuOpen(false)}
-                            className="flex items-center gap-3 text-neutral-300 hover:text-white transition-colors px-4 py-3 rounded-lg hover:bg-neutral-800"
-                        >
-                            <Brain className="h-5 w-5" />
-                            <span className="text-base font-medium">Generate Resume</span>
                         </Link>
                     </nav>
                 </div>

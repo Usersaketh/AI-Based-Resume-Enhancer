@@ -55,10 +55,6 @@ logs
 .eslintcache
 .stylelintcache
 
-# Firebase
-.firebase/
-firebase-debug.log
-
 # Vercel
 .vercel
 

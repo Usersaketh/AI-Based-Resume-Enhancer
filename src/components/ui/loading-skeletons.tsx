@@ -25,17 +25,3 @@ export const SuggestionsSkeleton = () => (
     ))}
   </div>
 );
-
-export const TemplatesSkeleton = () => (
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    {[1, 2, 3].map((i) => (
-      <div key={i} className="border border-neutral-700 rounded-lg overflow-hidden">
-        <Skeleton className="h-48 w-full" />
-        <div className="p-4">
-          <Skeleton className="h-5 w-24 mb-2" />
-          <Skeleton className="h-3 w-32" />
-        </div>
-      </div>
-    ))}
-  </div>
-);

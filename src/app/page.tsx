@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Brain, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { FlipWords } from "@/components/global/flip-words";
 import Link from "next/link";
 
@@ -33,12 +33,6 @@ export default function Home() {
                 Enhance Resume
               </Button>
             </Link>
-            <Link href="/generate-resume">
-              <Button className="w-full sm:w-auto px-6 sm:px-8 py-4 bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white text-base sm:text-lg font-semibold rounded-xl shadow-xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 min-w-[200px] sm:min-w-[220px] h-12">
-                <Brain className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
-                Generate Resume
-              </Button>
-            </Link>
           </div>
           
           {/* Feature Highlights */}
@@ -49,9 +43,11 @@ export default function Home() {
               <p className="text-xs sm:text-sm text-neutral-400">Get personalized, actionable feedback to improve your resume&apos;s ATS compatibility and impact</p>
             </div>
             <div className="bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-4 sm:p-6 hover:bg-neutral-800/50 transition-all duration-300">
-              <Brain className="h-6 w-6 sm:h-8 sm:w-8 text-purple-400 mb-3 mx-auto" />
-              <h3 className="text-base sm:text-lg font-semibold text-white mb-2">Smart Generation</h3>
-              <p className="text-xs sm:text-sm text-neutral-400">Create professional resumes from scratch with AI-powered content suggestions and templates</p>
+              <svg className="h-6 w-6 sm:h-8 sm:w-8 text-purple-400 mb-3 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              <h3 className="text-base sm:text-lg font-semibold text-white mb-2">Detailed Analysis</h3>
+              <p className="text-xs sm:text-sm text-neutral-400">Get comprehensive analysis of your resume content, structure, and formatting with specific improvements</p>
             </div>
             <div className="bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-4 sm:p-6 hover:bg-neutral-800/50 transition-all duration-300">
               <svg className="h-6 w-6 sm:h-8 sm:w-8 text-green-400 mb-3 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">

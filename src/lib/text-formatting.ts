@@ -65,32 +65,3 @@ export const getCharacterLimits = () => ({
   projectName: 100,
   certificateTitle: 100
 })
-
-export const getFieldSuggestions = (fieldType: string, templateType: string) => {
-  const suggestions: Record<string, Record<string, string[]>> = {
-    jobDescription: {
-      modern: [
-        'Led cross-functional teams to deliver innovative solutions',
-        'Implemented scalable architecture patterns resulting in 40% performance improvement',
-        'Collaborated with stakeholders to define product roadmap and technical strategy'
-      ],
-      elegant: [
-        'Orchestrated comprehensive project initiatives while maintaining exceptional quality standards',
-        'Cultivated strategic partnerships that enhanced organizational capabilities',
-        'Demonstrated thought leadership through innovative problem-solving approaches'
-      ],
-      standard: [
-        'Developed and maintained web applications using modern frameworks',
-        'Worked with team members to implement new features and fix bugs',
-        'Participated in code reviews and followed best practices'
-      ]
-    },
-    skills: {
-      modern: ['React', 'TypeScript', 'Node.js', 'Python', 'AWS', 'Docker', 'GraphQL'],
-      elegant: ['Strategic Planning', 'Project Management', 'Data Analysis', 'Leadership'],
-      standard: ['JavaScript', 'HTML/CSS', 'SQL', 'Git', 'Agile Methodologies']
-    }
-  }
-  
-  return suggestions[fieldType]?.[templateType] || []
-}

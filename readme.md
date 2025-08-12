@@ -16,12 +16,6 @@
 - **📊 Deep Analytics** - Comprehensive scoring with detailed improvement suggestions
 - **🏆 Benchmarking** - Compare your resume against industry standards
 - **💡 Intelligent Suggestions** - Personalized, actionable feedback for every section
-
-### 🎨 **Professional Resume Generation**
-- **4 Premium Templates** - Standard, Modern, Double Column, and Elegant designs
-- **📝 Smart Form Builder** - Intuitive multi-step forms with AI assistance
-- **🤖 AI Content Generation** - Get help writing compelling descriptions
-- **👀 Live Preview** - Real-time updates as you build your resume
 - **📱 Mobile Optimized** - Perfect experience across all devices
 - **💾 Auto-save** - Never lose your progress with automatic local storage
 
@@ -43,7 +37,6 @@
 ### **State Management**
 - **Local Persistence**: All data saved automatically in browser storage
 - **Real-time Updates**: Instant preview updates as you type
-- **Template Switching**: Seamless switching between designs without data loss
 - **Auto-save**: Never lose your progress with automatic saving
 
 ### **Performance Optimizations**
@@ -99,17 +92,11 @@
 4. **Mobile Responsive**: Works perfectly on all devices
 5. **Fast Performance**: Optimized for speed and efficiency
 
-### **Template System**
-1. **Professional Designs**: 4 carefully crafted, ATS-friendly templates
-2. **Customizable Layouts**: Each template optimized for different career levels
-3. **Print-Ready**: High-quality PDF output for professional use
-4. **Template Switching**: Easily switch between templates without losing data
-
-### **Smart Forms**
-1. **Multi-step Navigation**: Organized sections with progress tracking
-2. **AI Content Assistance**: Get help writing compelling descriptions
-3. **Form Validation**: Intelligent validation and error prevention
-4. **Data Persistence**: Local storage ensures data is never lost
+### **Smart Analysis**
+1. **Comprehensive Scoring**: Multi-dimensional analysis of your resume
+2. **ATS Compatibility**: Ensure your resume passes tracking systems
+3. **Industry Standards**: Compare against professional benchmarks
+4. **Actionable Feedback**: Specific suggestions for improvement
 
 ## 🚀 Getting Started
 
@@ -162,34 +149,27 @@
 src/
 ├── app/                          # Next.js App Router
 │   ├── api/                      # API endpoints
-│   │   ├── enhance-resume/       # Resume enhancement APIs
-│   │   └── generate-resume/      # Resume generation APIs
+│   │   └── enhance-resume/       # Resume enhancement APIs
 │   ├── enhance-resume/           # Resume enhancement pages
 │   │   └── upload-resume/        # Upload and analyze resume
-│   ├── generate-resume/          # Resume generation pages
-│   │   └── resume-templates/     # Template selection
 │   ├── globals.css               # Global styles
 │   ├── layout.tsx               # Root layout with navbar
 │   ├── page.tsx                 # Home page
 │   └── not-found.tsx            # 404 page
 ├── components/                   # Reusable React components
 │   ├── enhance-resume/          # Enhancement-specific components
-│   ├── generate-resume/         # Generation-specific components
-│   │   ├── forms/               # Form components for each section
-│   │   └── resume-templates/    # Template-specific components
+│   ├── enhance-resume/         # Enhancement-specific components
+│   │   ├── pdf-viewer.tsx      # PDF preview component
+│   │   └── suggestion-card.tsx # AI suggestion display
 │   ├── global/                  # Shared components (navbar, etc.)
 │   └── ui/                      # Base UI components
 ├── lib/                         # Utility functions and types
-│   ├── utils/                   # Utility functions
-│   │   └── fileUtils.ts         # File handling utilities
-│   ├── constant.ts              # Constants and template configurations
-│   ├── firestore-functions.ts   # Firebase/Firestore utilities
+│   ├── constant.ts              # Constants and configurations
+│   ├── fileUtils.ts             # File handling utilities
 │   ├── types.ts                # TypeScript type definitions
 │   └── utils.ts                # General utilities
 ├── store/                       # Zustand state management
-│   ├── enhance-resume-store.ts  # Enhancement state
-│   └── generate-resume-store.ts # Generation state
-├── firebase.ts                 # Firebase configuration
+│   └── enhance-resume-store.ts  # Enhancement state
 └── middleware.ts               # Next.js middleware
 ```
 
@@ -205,19 +185,6 @@ src/
    - Quantified achievement recommendations
 4. **Review Suggestions**: Browse through categorized suggestions
 5. **Apply Changes**: Use the insights to improve your resume
-
-### **Generate New Resume**
-1. **Choose Template**: Select from 4 professional templates
-2. **Fill Sections**: Complete the multi-step form:
-   - Basic details and contact information
-   - Education history with scores and duration
-   - Technical experience with AI-assisted descriptions
-   - Skills and expertise areas
-   - Projects with AI-generated descriptions
-   - Certifications and achievements
-3. **Preview Live**: See real-time updates as you build
-4. **Download PDF**: Export high-quality PDF when ready
-5. **Switch Templates**: Try different designs without losing data
 
 ## 💻 Performance & Optimization
 
@@ -282,8 +249,8 @@ CMD ["npm", "start"]
 | AI-Powered Analysis | ✅ Google Gemini | ❌ |
 | ATS Optimization | ✅ Advanced Scoring | ⚠️ Basic |
 | Mobile Responsive | ✅ Perfect | ⚠️ Limited |
-| Template Quality | ✅ 4 Professional | ⚠️ Generic |
-| Real-time Preview | ✅ Live Updates | ❌ |
+| Content Suggestions | ✅ Comprehensive | ⚠️ Generic |
+| Real-time Analysis | ✅ Live Updates | ❌ |
 | Auto-save | ✅ Local Storage | ❌ |
 | PDF Export | ✅ High Quality | ⚠️ Watermarked |
 | Open Source | ✅ MIT License | ❌ |
@@ -308,8 +275,8 @@ We welcome contributions! Here's how you can help:
 - Ensure accessibility compliance
 
 ### **Areas for Contribution**
-- 🎨 New resume templates
 - 🤖 Enhanced AI prompts and analysis
+- 📊 Advanced analytics and insights
 - 🌐 Internationalization (i18n)
 - ♿ Accessibility improvements
 - 🧪 Testing coverage
@@ -325,7 +292,7 @@ We welcome contributions! Here's how you can help:
 
 ### **Planned Improvements**
 - [ ] Multi-language support
-- [ ] Advanced template customization
+- [ ] Enhanced analysis algorithms
 - [ ] User account system
 - [ ] Resume analytics dashboard
 - [ ] Integration with job boards

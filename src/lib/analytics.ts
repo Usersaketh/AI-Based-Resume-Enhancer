@@ -68,16 +68,6 @@ class Analytics {
     });
   }
 
-  resumeGenerated(templateType: string, formSteps: number) {
-    this.event({
-      action: 'resume_generated',
-      category: 'Resume Generation',
-      label: templateType,
-      value: formSteps,
-      custom_parameters: { template_type: templateType }
-    });
-  }
-
   downloadInitiated(type: 'resume' | 'suggestions' | 'analysis') {
     this.event({
       action: 'download_initiated',

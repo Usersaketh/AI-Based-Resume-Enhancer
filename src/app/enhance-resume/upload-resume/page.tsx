@@ -1,6 +1,5 @@
 "use client";
 
-import Resume3DCard from "@/components/global/resume-card";
 import { useEnhanceResumeStore } from "@/store/enhance-resume-store";
 import { CloudUpload, FileText, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
